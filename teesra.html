@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Layout Example',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Layout Example'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawer Header'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('Item 1'),
+              onTap: () {
+                // TODO: Implement Item 1 functionality
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // TODO: Implement Item 2 functionality
+              },
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text('List Item $index'),
+                  leading: Icon(Icons.star),
+                  onTap: () {
+                    // TODO: Implement list item tap functionality
+                  },
+                );
+              },
+            ),
+          ),
+          Container(
+            height: 60.0,
+            color: Colors.blue,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.home),
+                  onPressed: () {
+                    // TODO: Implement home button functionality
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    // TODO: Implement search button functionality
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    // TODO: Implement settings button functionality
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
